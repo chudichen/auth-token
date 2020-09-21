@@ -1,5 +1,7 @@
 package com.chudichen.auth.token.annotation;
 
+import com.chudichen.auth.token.stp.StpLogic;
+import com.chudichen.auth.token.stp.StpUtil;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -11,6 +13,17 @@ import org.springframework.web.servlet.HandlerInterceptor;
  */
 public class AuthTokenCheckInterceptor implements HandlerInterceptor {
 
-    private
+    /** 底层的StpLogic对象 */
+    private StpLogic stpLogic;
 
+    /**
+     * 创建，并指定一个默认的StpLogic
+     */
+    public AuthTokenCheckInterceptor() {
+        this(StpUtil.stpLogic);
+    }
+
+    public AuthTokenCheckInterceptor(StpLogic stpLogic) {
+        this.stpLogic = stpLogic;
+    }
 }

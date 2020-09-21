@@ -1,6 +1,7 @@
 package com.chudichen.auth.token;
 
 import com.chudichen.auth.token.config.AuthTokenConfig;
+import com.chudichen.auth.token.config.AuthTokenConfigFactory;
 
 /**
  * 管理所有的auth-token对象
@@ -13,7 +14,7 @@ public class AuthTokenManager {
     /** 配置文件Bean */
     private static volatile AuthTokenConfig authTokenConfig;
 
-    private static AuthTokenConfig getConfig() {
+    public static AuthTokenConfig getConfig() {
         if (authTokenConfig == null) {
             initConfig();
         }
@@ -34,7 +35,7 @@ public class AuthTokenManager {
 
     public synchronized static void initConfig() {
         if (authTokenConfig == null) {
-            setConfig();
+            setConfig(AuthTokenConfigFactory.createConfig());
         }
     }
 
