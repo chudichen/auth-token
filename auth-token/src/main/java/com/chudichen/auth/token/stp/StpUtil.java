@@ -9,7 +9,16 @@ package com.chudichen.auth.token.stp;
 public class StpUtil {
 
     /** 底层的StpLogic对象 */
-    public static StpLogic stpLogic = new StpLogic("login");
+    private static StpLogic stpLogic = new StpLogic("login");
+
+    /**
+     * 获取StpLogic
+     *
+     * @return StpLogic
+     */
+    public static StpLogic getStpLogic() {
+        return stpLogic;
+    }
 
     // =================== 获取token 相关 ===================
 }
